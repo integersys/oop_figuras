@@ -27,7 +27,7 @@ public class Cetrsturis {
 		return s;
 		}*/
 		
-		public double cetrlaukums(double platums, double augstums) {
+		public double centraLaukums(double platums, double augstums) {
 			return platums*augstums;
 		}
 	}

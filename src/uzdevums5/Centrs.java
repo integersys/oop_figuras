@@ -17,7 +17,6 @@ public class Centrs {
 		x = x + koordX;
 		y = y + koordY;
 	}
-	
-	}
+}
 
 	
