@@ -20,14 +20,14 @@ public class Cetrsturis {
 			return "Platums: "+platums+" augstums: "+augstums+"cm";
 		}
 		
-		/*
+
 		// uztaisīt metodi, kas aprēķina laukumu un atgriež tikai rezultātu
-		// public double cLaukums(){
+		public double cLaukums(){
 		double s = platums * augstums;
 		return s;
-		}*/
+
 		
-		public double centraLaukums(double platums, double augstums) {
-			return platums*augstums;
+//		public double centraLaukums(double platums, double augstums) {
+//			return platums*augstums;
 		}
 	}
