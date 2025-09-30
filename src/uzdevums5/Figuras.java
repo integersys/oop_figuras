@@ -35,27 +35,73 @@ public class Figuras {
 //		System.out.println(aplis1.izvaditAplaInfo()+"\n"+"s = "+aplis1.rinkaLaukums()+"\n"+ "c = "+ aplis1.rLGarums());
 	
 		
+		
+		
 		int izvele, poga;
 		
-
+		
 		do {
 			izvele = MinkuTante.skaitlaParbaude("Ko vēlies darīt?\n"
-									+ "0 - Apturēt\n"
-									+ "1 - Izveidot objektu\n"
-									+ "2 - Aplūkot objektus\n"
-									+ "3 - Izsaukt metodi", 0, 3);
+					+ "0 - Apturēt\n"
+					+ "1 - Izveidot objektu\n"
+					+ "2 - Aplūkot objektus\n"
+					+ "3 - Izsaukt metodi", 0, 3);
+			
 			if(izvele == -1)
 				izvele = 0;
 			
 			switch(izvele) {
-			case 0: 
+			case 0:
 				JOptionPane.showMessageDialog(null, "Programma apturēta!", "Paziņojums", JOptionPane.INFORMATION_MESSAGE);
 				break;
-			
+				
 			case 1:
 				OIzveide.izveidotObjektu();
+				break;
+				
+			case 2:
+				poga = JOptionPane.showOptionDialog(null, "Kuras figūras aplūkot?", "Izvēle", JOptionPane.YES_NO_CANCEL_OPTION, JOptionPane.QUESTION_MESSAGE, null, objektuPogas, objektuPogas[0]);
+				
+				switch(poga) {
+				case 0:
+					if(centraObjekti.size() < 1) {
+						JOptionPane.showMessageDialog(null, "Nav neviens centra punkts", "Brīdinājums", JOptionPane.WARNING_MESSAGE);
+						break;
+					}
+					
+					JOptionPane.showMessageDialog(null, IzveidotieObjekti.izvadit(centraObjekti), "Centra punkti", JOptionPane.PLAIN_MESSAGE);
+					break;
+					
+				case 1:
+					if(cetrsturaObjekti.size() < 1) {
+						JOptionPane.showMessageDialog(null, "Nav neviens četrstūris", "Brīdinājums", JOptionPane.WARNING_MESSAGE);
+						break;
+					}
+					
+					JOptionPane.showMessageDialog(null, IzveidotieObjekti.izvaditCetrsturi(cetrsturaObjekti), "Četrstūra objekti", JOptionPane.PLAIN_MESSAGE);
+					break;
+					
+				case 2:
+					if(aplaObjekti.size() < 1) {
+						JOptionPane.showMessageDialog(null, "Nav neviens aplis", "Brīdinājums", JOptionPane.WARNING_MESSAGE);
+						break;
+					}
+					
+					JOptionPane.showMessageDialog(null, IzveidotieObjekti.izvaditAplis(aplaObjekti), "Apļa objekti", JOptionPane.PLAIN_MESSAGE);
+					break;
+					
+				case 3:
+					if(trijsturaObjekti.size() < 1) {
+						JOptionPane.showMessageDialog(null, "Nav trijstūris aplis", "Brīdinājums", JOptionPane.WARNING_MESSAGE);
+						break;
+					}
+					
+					JOptionPane.showMessageDialog(null, IzveidotieObjekti.izvaditTrijsturi(trijsturaObjekti), "Trijstūris objekti", JOptionPane.PLAIN_MESSAGE);
+					break;
+				}
 				break;
 			}
 		}while(izvele != 0);
 	}
-	}
+
+}

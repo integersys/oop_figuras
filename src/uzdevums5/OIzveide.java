@@ -9,9 +9,10 @@ public class OIzveide {
 	static int cPIzvele() {
 		if(Figuras.centraObjekti.size() < 1)
 			return -1;
-		else 
-		return Integer.parseInt(JOptionPane.showInputDialog(null,
-				IzveidotieObjekti.izvadit(Figuras.centraObjekti)));
+
+		int izvele = MinkuTante.skaitlaParbaude(IzveidotieObjekti.izvadit(Figuras.centraObjekti), 0, Figuras.centraObjekti.size()-1);
+		
+		return izvele;
 	}
 	
 	
@@ -30,6 +31,10 @@ public class OIzveide {
 		case 0:
 			x = MinkuTante.skaitlaParbaude("Ievadi centra punkta x koordinātas", -100, 100);
 			y = MinkuTante.skaitlaParbaude("Ievadi centra punkta y koordinātas", -100, 100);
+			if((x == -1 || y == -1) && MinkuTante.ievade == null){
+				JOptionPane.showMessageDialog(null, "Centra punkts netika izveidots!", "Brídinájums", JOptionPane.WARNING_MESSAGE);
+				break;
+			}
 			// izveidot centra punkta objektu un ielikt dinamiskajā masīvā
 			Figuras.centraObjekti.add(new Centrs(x, y));
 			
@@ -55,14 +60,17 @@ public class OIzveide {
 				case "Centra punkts un malas":
 					cPNr = cPIzvele();
 					if(cPNr == -1) {
-						JOptionPane.showMessageDialog(null, "Nav centra punkts, ko izvēlēties!","Kļūda",JOptionPane.ERROR_MESSAGE);
+						JOptionPane.showMessageDialog(null, "Netika izvēlēts centra punkts","Kļūda",JOptionPane.ERROR_MESSAGE);
 						break;
 					}
 					p = MinkuTante.skaitlaParbaude("Ievadi četrstūra platumu", 1, 100);
 					a = MinkuTante.skaitlaParbaude("Ievadi četrstūra augstumu", 1, 100);
+					if(p == -1 || a == -1) {
+						JOptionPane.showMessageDialog(null, "Četrstūris netika izveidots!", "Brīdinājums", JOptionPane.WARNING_MESSAGE);	
+						break;
+					}
 					Figuras.cetrsturaObjekti.add(new Cetrsturis(Figuras.centraObjekti.get(cPNr), p, a));
-					JOptionPane.showMessageDialog(null, "Četrstūris izveidots!", "Paziņojums", JOptionPane.INFORMATION_MESSAGE);
-					
+					JOptionPane.showMessageDialog(null, "Četrstūris izveidots!", "Paziņojums", JOptionPane.INFORMATION_MESSAGE);	
 					break;
 				}
 			break;
@@ -76,7 +84,6 @@ public class OIzveide {
 			int r = MinkuTante.skaitlaParbaude("Ievadi apļa rādiusu", 1, 100);
 			Figuras.aplaObjekti.add(new Aplis(Figuras.centraObjekti.get(cPNr), r));
 			JOptionPane.showMessageDialog(null, "Aplis izveidots!", "Paziņojums", JOptionPane.INFORMATION_MESSAGE);
-			
 			break;
 			
 		case 3:
