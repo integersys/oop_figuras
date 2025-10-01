@@ -15,7 +15,23 @@ public class OIzveide {
 		return izvele;
 	}
 	
+	static int cetIzvele() {
+		if (Figuras.cetrsturaObjekti.size()<1)
+			return-1;
+		
+		int izvele = MinkuTante.skaitlaParbaude(IzveidotieObjekti.izvaditCetrsturi(Figuras.cetrsturaObjekti), 0, Figuras.cetrsturaObjekti.size()-1);
+				
+			return izvele;
+	}
 	
+	static int aplaIzvele() {
+		
+		if(Figuras.aplaObjekti.size()<1)
+		return -1;
+		int izvele = MinkuTante.skaitlaParbaude(IzveidotieObjekti.izvaditAplis(Figuras.aplaObjekti), 0, Figuras.aplaObjekti.size()-1);
+		return izvele;
+	}
+
 	
 	static void izveidotObjektu() {
 		int x, y, cPNr;
